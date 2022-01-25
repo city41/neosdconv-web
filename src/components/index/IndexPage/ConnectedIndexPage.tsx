@@ -1,8 +1,17 @@
 import { useState } from 'react';
 import { IndexPage } from './IndexPage';
-import { buildNeoFile } from 'neosdconv/lib/buildNeoFile';
+import {
+	buildNeoFile,
+	ConvertOptions,
+	FilesInMemory,
+} from 'neosdconv/lib/buildNeoFile';
 
-type ConvertState = 'waiting-on-files' | 'converting' | 'success' | 'error';
+type ConvertState =
+	| 'waiting-on-files'
+	| 'waiting-on-options'
+	| 'converting'
+	| 'success'
+	| 'error';
 
 function getSafeFileName(root: string, ext: string): string {
 	// TODO: might need some scrubbing here
@@ -57,29 +66,30 @@ async function loadFiles(files: FileList): Promise<Record<string, Uint8Array>> {
 function ConnectedIndexPage() {
 	const [convertState, setConvertState] =
 		useState<ConvertState>('waiting-on-files');
+	const [filesInMemory, setFilesInMemory] = useState<FilesInMemory | null>(
+		null
+	);
+
 	async function handleFilesChosen(files: FileList) {
-		setConvertState('converting');
 		try {
 			const filesInMemory = await loadFiles(files);
+			setFilesInMemory(filesInMemory);
+			setConvertState('waiting-on-options');
+		} catch (e) {
+			setConvertState('error');
+		}
+	}
 
-			const neoFile = buildNeoFile(
-				{
-					genre: 9,
-					manufacturer: 'SNK',
-					name: 'Art of Fighting',
-					year: 1994,
-					ngh: '123',
-				},
-				filesInMemory
-			);
-
-			console.log({ neoFile });
+	function handleConvert(options: ConvertOptions, fileNameRoot: string) {
+		try {
+			setConvertState('converting');
+			const neoFile = buildNeoFile(options, filesInMemory!);
 
 			const fileBlob = new Blob([neoFile.buffer], {
 				type: 'application/octet-stream',
 			});
 
-			sendBlobToAnchorTag(fileBlob, getSafeFileName('aof', 'neo'));
+			sendBlobToAnchorTag(fileBlob, getSafeFileName(fileNameRoot, 'neo'));
 
 			setConvertState('success');
 		} catch (e) {
@@ -87,7 +97,13 @@ function ConnectedIndexPage() {
 		}
 	}
 
-	return <IndexPage state={convertState} onFilesChosen={handleFilesChosen} />;
+	return (
+		<IndexPage
+			state={convertState}
+			onFilesChosen={handleFilesChosen}
+			onConvert={handleConvert}
+		/>
+	);
 }
 
 export { ConnectedIndexPage };

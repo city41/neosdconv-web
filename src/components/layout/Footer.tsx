@@ -10,14 +10,14 @@ function Footer({ className }: FooterProps) {
 		<footer
 			className={clsx(
 				className,
-				'bg-gray-900 py-2 px-2 sm:p-4 text-center text-xs xborder-t border-focal-400'
+				'xborder-t border-focal-400 bg-gray-900 py-2 px-2 text-center text-xs sm:p-4'
 			)}
 		>
-			<div className="w-full max-w-6xl mx-auto flex flex-col space-y-2">
+			<div className="mx-auto flex w-full max-w-6xl flex-col space-y-2">
 				<div>
 					Made by{' '}
 					<a
-						className="text-link hover:underline text-blue-400"
+						className="text-link text-blue-400 hover:underline"
 						href="https://mattgreer.dev"
 					>
 						Matt Greer
@@ -25,7 +25,7 @@ function Footer({ className }: FooterProps) {
 					<span className="mx-2">&#124;</span>
 					<a
 						className="text-link hover:underline"
-						href="https://github.com/city41/neo-geo-blog"
+						href="https://github.com/city41/neosdconv-web"
 					>
 						GitHub repo
 					</a>
