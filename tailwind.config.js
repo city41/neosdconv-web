@@ -1,10 +1,18 @@
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+	purge: ['./src/**/*.{js,ts,jsx,tsx}'],
+	theme: {
+		extend: {
+			cursor: {
+				crosshair: 'crosshair',
+			},
+		},
+	},
+	variants: {
+		extend: {
+			display: ['group-hover'],
+			scale: ['group-hover'],
+			borderWidth: ['last'],
+		},
+	},
+	plugins: [],
+};

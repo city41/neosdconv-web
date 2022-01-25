@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	@apply w-full h-full bg-gray-700 text-white;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+.ReactModalPortal {
+	@apply relative z-10;
+}
+
+.modalOverlay {
+	@apply grid place-items-center;
+	@apply fixed top-0 left-0 bottom-0 right-0 z-10 w-screen h-screen overflow-y-auto;
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
+input {
+	@apply text-black !important;
+}
+
+.thinScrollbar::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+.thinScrollbar::-webkit-scrollbar-track {
+	background-color: #aaaaaa77;
+}
+
+.thinScrollbar::-webkit-scrollbar-thumb {
+	background-color: #aaa;
+}
+
+:root {
+	--lighten: 6%;
+	--darken: -6%;
+
+	--color-franic-h: 352;
+	--color-franic-s: 70%;
+	--color-franic-l: 40%;
+
+	--color-franic-fade: hsl(
+		var(--color-franic-h),
+		var(--color-franic-s),
+		calc(var(--color-franic-l) + var(--lighten) * 2)
+	);
+	--color-franic: hsl(
+		var(--color-franic-h),
+		var(--color-franic-s),
+		var(--color-franic-l)
+	);
+	--color-franic-deep: hsl(
+		var(--color-franic-h),
+		var(--color-franic-s),
+		calc(var(--color-franic-l) + var(--darken) * 4)
+	);
+
+	--color-neobook-h: 173;
+	--color-neobook-s: 70%;
+	--color-neobook-l: 35%;
+
+	--color-neobook-fade: hsl(
+		var(--color-neobook-h),
+		var(--color-neobook-s),
+		calc(var(--color-neobook-l) + var(--lighten) * 2)
+	);
+	--color-neobook: hsl(
+		var(--color-neobook-h),
+		var(--color-neobook-s),
+		var(--color-neobook-l)
+	);
+	--color-neobook-deep: hsl(
+		var(--color-neobook-h),
+		var(--color-neobook-s),
+		calc(var(--color-neobook-l) + var(--darken) * 4)
+	);
+
+	--color-neotools-h: 35;
+	--color-neotools-s: 39%;
+	--color-neotools-l: 36%;
+
+	--color-neotools-fade: hsl(
+		var(--color-neotools-h),
+		var(--color-neotools-s),
+		calc(var(--color-neotools-l) + var(--lighten) * 2)
+	);
+	--color-neotools: hsl(
+		var(--color-neotools-h),
+		var(--color-neotools-s),
+		var(--color-neotools-l)
+	);
+	--color-neotools-deep: hsl(
+		var(--color-neotools-h),
+		var(--color-neotools-s),
+		calc(var(--color-neotools-l) + var(--darken) * 4)
+	);
+}
