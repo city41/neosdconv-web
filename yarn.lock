@@ -720,10 +720,10 @@ nanoid@^3.1.23, nanoid@^3.1.30:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.2.0.tgz#62667522da6673971cca916a6d3eff3f415ff80c"
   integrity sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==
 
-neosdconv@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/neosdconv/-/neosdconv-0.4.2.tgz#f5d553c93a56517cdd40798115b986c19fdf3744"
-  integrity sha512-73zn/JmzlgX6AMWYbetZeSNg7YhB7VZnPHnt0ZACRzKhagZoTX0O6kYqrqmWMGBtzlJNiCZBxIovUXbLULDq+g==
+neosdconv@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/neosdconv/-/neosdconv-0.4.4.tgz#7fb055a20b75464d58efa084537423726efc68f5"
+  integrity sha512-6xWqXnQ9nvkCCH2CAMJBaHz7M87+U4GBBcWoc0riGk5c+Qttey+muo2lwxAYl75xuvvR2fg2Yb5uyNhERT4RwA==
   dependencies:
     commander "^8.1.0"
     extract-zip "^2.0.1"
