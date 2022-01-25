@@ -59,8 +59,8 @@ function IndexPage({
 				)}
 				{state === 'success' && (
 					<div className="bg-green-600 px-4 py-2 font-bold text-white">
-						Successfully converted the file, you should have seen it download
-						below. To convert another, refresh the page.
+						Successfully converted the file, your browser should have downloaded
+						it. To convert another ROM, refresh the page.
 					</div>
 				)}
 			</div>
