@@ -81,20 +81,23 @@ function ConnectedIndexPage() {
 	}
 
 	function handleConvert(options: ConvertOptions, fileNameRoot: string) {
-		try {
-			setConvertState('converting');
-			const neoFile = buildNeoFile(options, filesInMemory!);
+		setConvertState('converting');
+		setTimeout(() => {
+			try {
+				console.log({ options });
+				const neoFile = buildNeoFile(options, filesInMemory!);
 
-			const fileBlob = new Blob([neoFile.buffer], {
-				type: 'application/octet-stream',
-			});
+				const fileBlob = new Blob([neoFile.buffer], {
+					type: 'application/octet-stream',
+				});
 
-			sendBlobToAnchorTag(fileBlob, getSafeFileName(fileNameRoot, 'neo'));
+				sendBlobToAnchorTag(fileBlob, getSafeFileName(fileNameRoot, 'neo'));
 
-			setConvertState('success');
-		} catch (e) {
-			setConvertState('error');
-		}
+				setConvertState('success');
+			} catch (e) {
+				setConvertState('error');
+			}
+		}, 10);
 	}
 
 	return (

@@ -1,0 +1,19 @@
+.root label {
+	grid-column: 1;
+}
+
+.root input,
+.root select {
+	grid-column: 2;
+}
+
+.root *:required + label {
+	position: relative;
+}
+
+.root *:required + label::before {
+	content: '*';
+	color: red;
+	position: absolute;
+	left: -10px;
+}
