@@ -8,14 +8,6 @@ type HeadProps = {
 	metaImg?: string;
 };
 
-function getPageTitle(incomingTitle: string): string {
-	if (incomingTitle.toLowerCase().includes('smaghetti')) {
-		return incomingTitle;
-	} else {
-		return `${incomingTitle} | Smaghetti`;
-	}
-}
-
 function getAbsoluteUrl(url: string): string {
 	if (url.startsWith('http')) {
 		return url;
@@ -39,7 +31,7 @@ function Head({ title, metaDescription, metaImg }: HeadProps) {
 
 	return (
 		<NextHead>
-			<title>{getPageTitle(title)}</title>
+			<title>{title}</title>
 
 			<meta charSet="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
